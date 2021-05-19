@@ -26,13 +26,24 @@ All of the code is organized into folders. For example, Chapter06.
 
 The code will look like the following:
 ```
-DECLARE @i INT=1
-WHILE(@i<5)
-           BEGIN
-                 SELECT @i
-                 /*Your logic goes here*/
-                 SET @i+=1
-           END
+DROP VIEW IF EXISTS populationView;
+GO
+
+CREATE VIEW populationView AS
+SELECT * 
+FROM OPENROWSET(
+        BULK 'csv/population/population.csv',
+        DATA_SOURCE = 'SqlOnDemandDemo',
+        FORMAT = 'CSV', 
+        FIELDTERMINATOR =',', 
+        ROWTERMINATOR = '\n'
+    )
+WITH (
+    [country_code] VARCHAR (5) COLLATE Latin1_General_BIN2,
+    [country_name] VARCHAR (100) COLLATE Latin1_General_BIN2,
+    [year] smallint,
+    [population] bigint
+) AS [r];
 
 ```
 
