@@ -50,7 +50,7 @@ WITH (
 **Following is what you need for this book:**
 This book is for data engineers, IT professionals, business analysts, data scientists, and database administrators who are looking to get up and running with the Azure Synapse Analytics platform. Basic knowledge of data warehousing will be beneficial to help you understand the concepts covered in this book more effectively.
 
-With the following software and hardware list you can run all code files present in the book (Chapter 1-13).
+With the following software and hardware list you can run all code files present in the book (Chapter 1-14).
 
 ### Software and Hardware List
 
